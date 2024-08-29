@@ -21,7 +21,7 @@ jobs:
       with:
         dotnet-version: 9.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore src/GuidRVAGen.sln
     - name: Build
       run: dotnet build src/GuidRVAGen.sln --no-restore
     - name: Test
