@@ -20,9 +20,7 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
-    - name: Restore dependencies
-      run: dotnet restore src/GuidRVAGen.sln
     - name: Build
-      run: dotnet build src/GuidRVAGen.sln --no-restore
+      run: dotnet build src/GuidRVAGen.sln
     - name: Test
-      run: dotnet test src/GuidRVAGen.sln --no-build --verbosity normal
+      run: dotnet test src/GuidRVAGen.sln --no-build
