@@ -1,6 +1,8 @@
 # GuidRVAGen
 A source generator that generates RVAs for GUIDs using a `GuidAttribute` equivalent.
 
+![NuGet Version](https://img.shields.io/nuget/v/Dongle.GuidRVAGen)
+
 [Jump to usage](#usage)
 
 ## Purpose
