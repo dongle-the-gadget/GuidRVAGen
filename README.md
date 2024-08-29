@@ -17,7 +17,15 @@ Under CsWin32's "disable-marshalling" mode (which must be used for AOT compilati
 HRESULT QueryInterface(Guid* riid, void** ppv);
 ```
 
-This means to use it with `static readonly Guid`, you would either have to pin it yourself:
+This means to use it with `static readonly Guid`, you would have to copy it to another variable:
+```cs
+IUnknown* comObject;
+IUnknown* queriedObject;
+Guid guid = IID_IUnknown;
+Marshal.ThrowExceptionForHR(comObject->QueryInterface(&guid, (void**)(&queriedObject)));
+```
+
+Or pin it yourself:
 ```cs
 IUnknown* comObject;
 IUnknown* queriedObject;
