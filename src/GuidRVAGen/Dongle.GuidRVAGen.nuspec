@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+	<metadata>
+		<id>Dongle.GuidRVAGen</id>
+		<version>1.0.0</version>
+		<authors>Dongle</authors>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>A source generator that generates RVAs for GUIDs using a GuidAttribute equivalent.</description>
+		<dependencies>
+			<group targetFramework="netstandard2.0">
+				<dependency id="System.Memory" version="4.5.5" />
+			</group>
+			<group targetFramework="netstandard2.1"></group>
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="$outputfolder$$outputfilename$.dll" target="analyzers/dotnet/cs/$outputfilename$.dll" />
+	</files>
+</package>
