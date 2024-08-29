@@ -14,6 +14,7 @@
 		</dependencies>
 		<readme>README.md</readme>
 		<license type="expression">MIT</license>
+		<projectUrl>https://github.com/dongle-the-gadget/GuidRVAGen</projectUrl>
 	</metadata>
 	<files>
 		<file src="$outputfolder$$outputfilename$.dll" target="analyzers/dotnet/cs/$outputfilename$.dll" />
