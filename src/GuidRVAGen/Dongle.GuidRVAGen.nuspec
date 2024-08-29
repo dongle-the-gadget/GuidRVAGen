@@ -12,8 +12,11 @@
 			</group>
 			<group targetFramework="netstandard2.1"></group>
 		</dependencies>
+		<readme>README.md</readme>
+		<license type="expression">MIT</license>
 	</metadata>
 	<files>
 		<file src="$outputfolder$$outputfilename$.dll" target="analyzers/dotnet/cs/$outputfilename$.dll" />
+		<file src="..\..\README.md" target="README.md" />
 	</files>
 </package>
