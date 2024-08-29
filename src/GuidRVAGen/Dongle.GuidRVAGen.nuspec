@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
 	<metadata>
 		<id>Dongle.GuidRVAGen</id>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 		<authors>Dongle</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>A source generator that generates RVAs for GUIDs using a GuidAttribute equivalent.</description>

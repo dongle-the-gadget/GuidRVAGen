@@ -161,7 +161,7 @@ public class GuidRVAGenerator : IIncrementalGenerator
                 }
 
                 writer.WriteLine(" ];");
-                writer.WriteLine("ref global::System.Guid reference = ref global::System.Runtime.CompilerServices.Unsafe.As<byte, Guid>(ref global::System.Runtime.InteropServices.MemoryMarshal.GetReference(guidBytes));");
+                writer.WriteLine("ref global::System.Guid reference = ref global::System.Runtime.CompilerServices.Unsafe.As<byte, global::System.Guid>(ref global::System.Runtime.InteropServices.MemoryMarshal.GetReference(guidBytes));");
                 if (value.returnType == GuidReturnType.Pointer)
                 {
                     writer.WriteLine("return (global::System.Guid*)global::System.Runtime.CompilerServices.Unsafe.AsPointer(ref reference);");
