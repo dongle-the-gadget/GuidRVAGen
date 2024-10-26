@@ -93,8 +93,10 @@ public class IncrementalTests
 
         var results = GetIncrementalGeneratorTrackedStepsReasons(step1, step2);
         Assert.Equal("New", results[0]["CollectProperties"]);
+        Assert.Equal("New", results[0]["CollectPropertiesFiltered"]);
         Assert.Equal("New", results[0]["SourceOutput"]);
         Assert.Equal("Unchanged", results[1]["CollectProperties"]);
+        Assert.Equal("Cached", results[1]["CollectPropertiesFiltered"]);
         Assert.Equal("Cached", results[1]["SourceOutput"]);
     }
 
@@ -123,8 +125,10 @@ public class IncrementalTests
 
         var results = GetIncrementalGeneratorTrackedStepsReasons(step1, step2);
         Assert.Equal("New", results[0]["CollectProperties"]);
+        Assert.Equal("New", results[0]["CollectPropertiesFiltered"]);
         Assert.Equal("New", results[0]["SourceOutput"]);
         Assert.Equal("Modified", results[1]["CollectProperties"]);
+        Assert.Equal("Modified", results[1]["CollectPropertiesFiltered"]);
         Assert.Equal("Modified", results[1]["SourceOutput"]);
     }
 
@@ -153,8 +157,10 @@ public class IncrementalTests
 
         var results = GetIncrementalGeneratorTrackedStepsReasons(step1, step2);
         Assert.Equal("New", results[0]["CollectProperties"]);
+        Assert.Equal("New", results[0]["CollectPropertiesFiltered"]);
         Assert.Equal("New", results[0]["SourceOutput"]);
         Assert.Equal("Modified", results[1]["CollectProperties"]);
+        Assert.Equal("Modified", results[1]["CollectPropertiesFiltered"]);
         Assert.Equal("Modified", results[1]["SourceOutput"]);
     }
 
@@ -183,8 +189,10 @@ public class IncrementalTests
 
         var results = GetIncrementalGeneratorTrackedStepsReasons(step1, step2);
         Assert.Equal("New", results[0]["CollectProperties"]);
+        Assert.Equal("New", results[0]["CollectPropertiesFiltered"]);
         Assert.Equal("New", results[0]["SourceOutput"]);
         Assert.Equal("Modified", results[1]["CollectProperties"]);
+        Assert.Equal("Modified", results[1]["CollectPropertiesFiltered"]);
         Assert.Equal("Modified", results[1]["SourceOutput"]);
     }
 
@@ -213,8 +221,10 @@ public class IncrementalTests
 
         var results = GetIncrementalGeneratorTrackedStepsReasons(step1, step2);
         Assert.Equal("New", results[0]["CollectProperties"]);
+        Assert.Equal("New", results[0]["CollectPropertiesFiltered"]);
         Assert.Equal("New", results[0]["SourceOutput"]);
         Assert.Equal("Modified", results[1]["CollectProperties"]);
+        Assert.Equal("Modified", results[1]["CollectPropertiesFiltered"]);
         Assert.Equal("Modified", results[1]["SourceOutput"]);
     }
 
@@ -243,8 +253,10 @@ public class IncrementalTests
 
         var results = GetIncrementalGeneratorTrackedStepsReasons(step1, step2);
         Assert.Equal("New", results[0]["CollectProperties"]);
+        Assert.Equal("New", results[0]["CollectPropertiesFiltered"]);
         Assert.Equal("New", results[0]["SourceOutput"]);
         Assert.Equal("Modified", results[1]["CollectProperties"]);
+        Assert.Equal("Modified", results[1]["CollectPropertiesFiltered"]);
         Assert.Equal("Modified", results[1]["SourceOutput"]);
     }
 
@@ -273,8 +285,10 @@ public class IncrementalTests
 
         var results = GetIncrementalGeneratorTrackedStepsReasons(step1, step2);
         Assert.Equal("New", results[0]["CollectProperties"]);
+        Assert.Equal("New", results[0]["CollectPropertiesFiltered"]);
         Assert.Equal("New", results[0]["SourceOutput"]);
         Assert.Equal("Modified", results[1]["CollectProperties"]);
+        Assert.Equal("Modified", results[1]["CollectPropertiesFiltered"]);
         Assert.Equal("Modified", results[1]["SourceOutput"]);
     }
 
@@ -303,8 +317,10 @@ public class IncrementalTests
 
         var results = GetIncrementalGeneratorTrackedStepsReasons(step1, step2);
         Assert.Equal("New", results[0]["CollectProperties"]);
+        Assert.Equal("New", results[0]["CollectPropertiesFiltered"]);
         Assert.Equal("New", results[0]["SourceOutput"]);
         Assert.Equal("Modified", results[1]["CollectProperties"]);
+        Assert.Equal("Modified", results[1]["CollectPropertiesFiltered"]);
         Assert.Equal("Modified", results[1]["SourceOutput"]);
     }
 
@@ -333,8 +349,10 @@ public class IncrementalTests
 
         var results = GetIncrementalGeneratorTrackedStepsReasons(step1, step2);
         Assert.Equal("New", results[0]["CollectProperties"]);
+        Assert.Equal("New", results[0]["CollectPropertiesFiltered"]);
         Assert.Equal("New", results[0]["SourceOutput"]);
         Assert.Equal("Modified", results[1]["CollectProperties"]);
+        Assert.Equal("Modified", results[1]["CollectPropertiesFiltered"]);
         Assert.Equal("Modified", results[1]["SourceOutput"]);
     }
 
@@ -363,8 +381,10 @@ public class IncrementalTests
 
         var results = GetIncrementalGeneratorTrackedStepsReasons(step1, step2);
         Assert.Equal("New", results[0]["CollectProperties"]);
+        Assert.Equal("New", results[0]["CollectPropertiesFiltered"]);
         Assert.Equal("New", results[0]["SourceOutput"]);
         Assert.Equal("Modified", results[1]["CollectProperties"]);
+        Assert.Equal("Modified", results[1]["CollectPropertiesFiltered"]);
         Assert.Equal("Modified", results[1]["SourceOutput"]);
     }
 
@@ -393,8 +413,10 @@ public class IncrementalTests
 
         var results = GetIncrementalGeneratorTrackedStepsReasons(step1, step2);
         Assert.Equal("New", results[0]["CollectProperties"]);
+        Assert.Equal("New", results[0]["CollectPropertiesFiltered"]);
         Assert.Equal("New", results[0]["SourceOutput"]);
         Assert.Equal("Modified", results[1]["CollectProperties"]);
+        Assert.Equal("Modified", results[1]["CollectPropertiesFiltered"]);
         Assert.Equal("Modified", results[1]["SourceOutput"]);
     }
 
@@ -423,8 +445,10 @@ public class IncrementalTests
 
         var results = GetIncrementalGeneratorTrackedStepsReasons(step1, step2);
         Assert.Equal("New", results[0]["CollectProperties"]);
+        Assert.Equal("New", results[0]["CollectPropertiesFiltered"]);
         Assert.Equal("New", results[0]["SourceOutput"]);
         Assert.Equal("Modified", results[1]["CollectProperties"]);
+        Assert.Equal("Modified", results[1]["CollectPropertiesFiltered"]);
         Assert.Equal("Modified", results[1]["SourceOutput"]);
     }
 }

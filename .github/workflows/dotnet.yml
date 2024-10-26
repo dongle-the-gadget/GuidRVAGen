@@ -9,6 +9,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+
 jobs:
   build:
 
@@ -20,7 +23,10 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
+        cache: true
+    - name: Restore
+      run: dotnet restore src/GuidRVAGen.sln --locked-mode
     - name: Build
-      run: dotnet build src/GuidRVAGen.sln
+      run: dotnet build src/GuidRVAGen.sln --no-restore
     - name: Test
       run: dotnet test src/GuidRVAGen.sln --no-build

@@ -89,7 +89,8 @@ public class GuidRVAGenerator : IIncrementalGenerator
             .WithTrackingName("GuidRVAGenerator.CollectProperties");
 
         IncrementalValuesProvider<(HierarchyInfo Hierarchy, string PropertyName, EquatableArray<ushort> Modifiers, GuidReturnType ReturnType, Guid ParsedGuid)> filteredProperties
-            = propertiesProvider.Where(static (property) => property != default);
+            = propertiesProvider.Where(static (property) => property != default)
+            .WithTrackingName("GuidRVAGenerator.CollectPropertiesFiltered");
 
         context.RegisterSourceOutput(filteredProperties, static (context, property) =>
         {

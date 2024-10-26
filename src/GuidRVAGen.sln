@@ -11,6 +11,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4E0DC568-93C3-4561-ADA6-4162E9F6F930}"
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
+		..\.github\workflows\dotnet.yml = ..\.github\workflows\dotnet.yml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuidRVAGen.Sample", "GuidRVAGen.Sample\GuidRVAGen.Sample.csproj", "{45DDB873-C1B1-4583-B8EA-371C664A977D}"
