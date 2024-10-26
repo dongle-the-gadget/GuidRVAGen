@@ -20,6 +20,7 @@
 		<file src="$sharedoutputfolder$GuidRVAGen\netstandard2.0\GuidRVAGen.dll" target="analyzers/dotnet/cs/GuidRVAGen.dll" />
 		<file src="$sharedoutputfolder$GuidRVAGen.Attributes\netstandard1.1\GuidRVAGen.Attributes.dll" target="lib/netstandard1.1/GuidRVAGen.Attributes.dll" />
 		<file src="$sharedoutputfolder$GuidRVAGen.Attributes\netstandard1.1\GuidRVAGen.Attributes.xml" target="lib/netstandard1.1/GuidRVAGen.Attributes.xml" />
+		<file src="..\Dongle.GuidRVAGen.targets" target="build/Dongle.GuidRVAGen.targets" />
 		<file src="..\..\README.md" target="README.md" />
 	</files>
 </package>

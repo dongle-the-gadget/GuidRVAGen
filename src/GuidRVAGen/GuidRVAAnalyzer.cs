@@ -26,12 +26,12 @@ public class GuidRVAAnalyzer : DiagnosticAnalyzer
         context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
         context.EnableConcurrentExecution();
 
-        context.RegisterCompilationStartAction(static context =>
+        context.RegisterCompilationStartAction(static startCtx =>
         {
-            INamedTypeSymbol guidSymbol = context.Compilation.GetTypeByMetadataName("System.Guid")!;
-            IPointerTypeSymbol guidPointerSymbol = context.Compilation.CreatePointerTypeSymbol(guidSymbol);
+            INamedTypeSymbol guidSymbol = startCtx.Compilation.GetTypeByMetadataName("System.Guid")!;
+            IPointerTypeSymbol guidPointerSymbol = startCtx.Compilation.CreatePointerTypeSymbol(guidSymbol);
 
-            context.RegisterSymbolAction((ctx) =>
+            startCtx.RegisterSymbolAction((ctx) =>
             {
                 if (ctx.Symbol is not IPropertySymbol propertySymbol)
                 {
