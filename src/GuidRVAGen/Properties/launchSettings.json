@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GuidRVAGen (Roslyn)": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\GuidRVAGen.Sample\\GuidRVAGen.Sample.csproj"
+    }
+  }
+}

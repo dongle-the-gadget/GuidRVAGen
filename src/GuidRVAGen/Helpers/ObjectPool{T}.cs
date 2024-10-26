@@ -56,7 +56,9 @@ internal sealed class ObjectPool<T>(Func<T> factory, int size)
     /// </summary>
     /// <param name="factory">The input factory to produce <typeparamref name="T"/> items.</param>
     public ObjectPool(Func<T> factory)
+#pragma warning disable
         : this(factory, Environment.ProcessorCount * 2)
+#pragma warning restore
     {
     }
 

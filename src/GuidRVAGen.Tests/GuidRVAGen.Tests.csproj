@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GuidRVAGen.Attributes\GuidRVAGen.Attributes.csproj" />
     <ProjectReference Include="..\GuidRVAGen\GuidRVAGen.csproj" />
   </ItemGroup>
 

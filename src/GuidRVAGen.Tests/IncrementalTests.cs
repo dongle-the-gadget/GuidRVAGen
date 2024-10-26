@@ -13,8 +13,12 @@ public class IncrementalTests
             driverOptions: new GeneratorDriverOptions(IncrementalGeneratorOutputKind.None, trackIncrementalGeneratorSteps: true))
             .WithUpdatedParseOptions(parseOptions);
 
-        var references = AppDomain.CurrentDomain.GetAssemblies()
-            .Where(x => !x.IsDynamic && !string.IsNullOrWhiteSpace(x.Location))
+        // Dummy variable to make sure GuidAttribute is referenced correctly.
+        GuidAttribute _ = new("");
+
+        var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(f => !f.IsDynamic && !string.IsNullOrEmpty(f.Location));
+
+        var references = assemblies
             .Select(x => MetadataReference.CreateFromFile(x.Location));
 
         CSharpCompilation compilation = CSharpCompilation.Create(

@@ -6,6 +6,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Nullable>enable</Nullable>
     <NuspecFile>Dongle.GuidRVAGen.nuspec</NuspecFile>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <IsRoslynComponent>true</IsRoslynComponent>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,11 +16,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <ProjectReference Include="..\GuidRVAGen.Attributes\GuidRVAGen.Attributes.csproj" />
   </ItemGroup>
 
   <Target Name="SetNuspecProperties" BeforeTargets="GenerateNuspec">
     <PropertyGroup>
-      <NuspecProperties>$(NuspecProperties);outputfolder=$(OutputPath);outputfilename=$(AssemblyName)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);sharedoutputfolder=$(CommonOutputPath);version=$(Version)</NuspecProperties>
     </PropertyGroup>
   </Target>
 

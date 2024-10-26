@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
 	<metadata>
 		<id>Dongle.GuidRVAGen</id>
-		<version>1.0.1</version>
+		<version>$version$</version>
 		<authors>Dongle</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>A source generator that generates RVAs for GUIDs using a GuidAttribute equivalent.</description>
 		<dependencies>
-			<group targetFramework="netstandard2.0">
+			<group targetFramework="netstandard1.1">
 				<dependency id="System.Memory" version="4.5.5" />
 			</group>
 			<group targetFramework="netstandard2.1"></group>
@@ -17,7 +17,9 @@
 		<projectUrl>https://github.com/dongle-the-gadget/GuidRVAGen</projectUrl>
 	</metadata>
 	<files>
-		<file src="$outputfolder$$outputfilename$.dll" target="analyzers/dotnet/cs/$outputfilename$.dll" />
+		<file src="$sharedoutputfolder$GuidRVAGen\netstandard2.0\GuidRVAGen.dll" target="analyzers/dotnet/cs/GuidRVAGen.dll" />
+		<file src="$sharedoutputfolder$GuidRVAGen.Attributes\netstandard1.1\GuidRVAGen.Attributes.dll" target="lib/netstandard1.1/GuidRVAGen.Attributes.dll" />
+		<file src="$sharedoutputfolder$GuidRVAGen.Attributes\netstandard1.1\GuidRVAGen.Attributes.xml" target="lib/netstandard1.1/GuidRVAGen.Attributes.xml" />
 		<file src="..\..\README.md" target="README.md" />
 	</files>
 </package>

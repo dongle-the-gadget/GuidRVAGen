@@ -35,4 +35,12 @@ internal static class DiagnosticDescriptors
         category: "Usage",
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true);
+
+    public static DiagnosticDescriptor PropertyNotPartialDescriptor = new(
+        id: "GUIDGEN0005",
+        title: "Property is not partial",
+        messageFormat: "The property with the [Guid] attribute must be partial",
+        category: "Usage",
+        defaultSeverity: DiagnosticSeverity.Error,
+        isEnabledByDefault: true);
 }

@@ -64,50 +64,49 @@ internal sealed partial record HierarchyInfo(string FullyQualifiedMetadataName, 
             writer.WriteLine($"namespace {Namespace}");
             writer.WriteLine("{");
             writer.IncreaseIndent();
+        }
 
+        // Declare all the opening types until the inner-most one
+        for (int i = Hierarchy.Length - 1; i >= 0; i--)
+        {
+            writer.WriteLine($$"""/// <inheritdoc cref="{{Hierarchy[i].QualifiedName}}"/>""");
 
-            // Declare all the opening types until the inner-most one
-            for (int i = Hierarchy.Length - 1; i >= 0; i--)
+            if (AllowsUnsafe)
+                writer.Write("unsafe ");
+
+            writer.Write($$"""partial {{Hierarchy[i].GetTypeKeyword()}} {{Hierarchy[i].QualifiedName}}""");
+
+            // Add any base types, if needed
+            if (i == 0 && !baseTypes.IsEmpty)
             {
-                writer.WriteLine($$"""/// <inheritdoc cref="{{Hierarchy[i].QualifiedName}}"/>""");
-
-                if (AllowsUnsafe)
-                    writer.Write("unsafe ");
-
-                writer.Write($$"""partial {{Hierarchy[i].GetTypeKeyword()}} {{Hierarchy[i].QualifiedName}}""");
-
-                // Add any base types, if needed
-                if (i == 0 && !baseTypes.IsEmpty)
-                {
-                    writer.Write(" : ");
-                    writer.WriteInitializationExpressions(baseTypes, static (item, writer) => writer.Write(item));
-                    writer.WriteLine();
-                }
-                else
-                {
-                    writer.WriteLine();
-                }
-
-                writer.WriteLine($$"""{""");
-                writer.IncreaseIndent();
+                writer.Write(" : ");
+                writer.WriteInitializationExpressions(baseTypes, static (item, writer) => writer.Write(item));
+                writer.WriteLine();
+            }
+            else
+            {
+                writer.WriteLine();
             }
 
-            // Generate all nested members
-            writer.WriteLineSeparatedMembers(memberCallbacks, (callback, writer) => callback(state, writer));
+            writer.WriteLine($$"""{""");
+            writer.IncreaseIndent();
+        }
 
-            // Close all scopes and reduce the indentation
-            for (int i = 0; i < Hierarchy.Length; i++)
-            {
-                writer.DecreaseIndent();
-                writer.WriteLine("}");
-            }
+        // Generate all nested members
+        writer.WriteLineSeparatedMembers(memberCallbacks, (callback, writer) => callback(state, writer));
 
-            // Close the namespace scope as well, if needed
-            if (Namespace.Length > 0)
-            {
-                writer.DecreaseIndent();
-                writer.WriteLine("}");
-            }
+        // Close all scopes and reduce the indentation
+        for (int i = 0; i < Hierarchy.Length; i++)
+        {
+            writer.DecreaseIndent();
+            writer.WriteLine("}");
+        }
+
+        // Close the namespace scope as well, if needed
+        if (Namespace.Length > 0)
+        {
+            writer.DecreaseIndent();
+            writer.WriteLine("}");
         }
     }
 
