@@ -1,6 +1,7 @@
 ﻿using GuidRVAGen.Extensions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using System;
 using System.Collections.Immutable;
@@ -77,9 +78,16 @@ internal class GuidRVAAnalyzer : DiagnosticAnalyzer
                     ctx.ReportDiagnostic(Diagnostic.Create(DiagnosticDescriptors.PropertyHasSetterDescriptor, attribute.GetLocation()));
                 }
 
-                if (propertySymbol.IsDefinition && !propertySymbol.IsPartialDefinition)
+                foreach (SyntaxReference propertyReference in propertySymbol.DeclaringSyntaxReferences)
                 {
-                    ctx.ReportDiagnostic(Diagnostic.Create(DiagnosticDescriptors.PropertyNotPartialDescriptor, attribute.GetLocation()));
+                    if (propertyReference.GetSyntax() is not PropertyDeclarationSyntax propertyDeclaration)
+                    {
+                        continue;
+                    }
+                    if (!propertyDeclaration.Modifiers.Any(SyntaxKind.PartialKeyword))
+                    {
+                        ctx.ReportDiagnostic(Diagnostic.Create(DiagnosticDescriptors.PropertyNotPartialDescriptor, propertyDeclaration.GetLocation()));
+                    }
                 }
             }, SymbolKind.Property);
         });
