@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <PlaformFolder Condition="'$(Platform)' != 'AnyCPU' and '$(Platform)' != 'Any CPU'">$(Platform)\</PlaformFolder>
-        <CommonOutputPath>$(SolutionDir)bin\$(PlatformFolder)$(Configuration)\</CommonOutputPath>
+        <CommonOutputPath>$(MSBuildProjectDirectory)\..\bin\$(PlatformFolder)$(Configuration)\</CommonOutputPath>
         <OutputPath>$(CommonOutputPath)$(MSBuildProjectName)\$(TargetFramework)</OutputPath>
         <Version>1.0.4</Version>
     </PropertyGroup>
