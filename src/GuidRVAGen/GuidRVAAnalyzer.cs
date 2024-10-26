@@ -10,7 +10,7 @@ using System.Linq;
 namespace GuidRVAGen;
 
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
-internal class GuidRVAAnalyzer : DiagnosticAnalyzer
+public class GuidRVAAnalyzer : DiagnosticAnalyzer
 {
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => 
     [
