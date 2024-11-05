@@ -34,10 +34,10 @@ public class AnalyzerTests
                 },
                 ExpectedDiagnostics =
                 {
-                    DiagnosticResult.CompilerError("GUIDGEN0002").WithSpan(5, 6, 5, 61)
+                    DiagnosticResult.CompilerError("GUIDGEN0002").WithSpan(5, 6, 5, 21)
                 }
             },
-            CompilerDiagnostics = CompilerDiagnostics.None
+            CompilerDiagnostics = CompilerDiagnostics.None,
         };
         test.TestState.AdditionalReferences.AddRange(references);
         await test.RunAsync();
@@ -71,7 +71,7 @@ public class AnalyzerTests
                 },
                 ExpectedDiagnostics =
                 {
-                    DiagnosticResult.CompilerError("GUIDGEN0003").WithSpan(5, 6, 5, 32)
+                    DiagnosticResult.CompilerError("GUIDGEN0003").WithSpan(5, 22, 5, 31)
                 }
             },
             CompilerDiagnostics = CompilerDiagnostics.None
@@ -108,7 +108,7 @@ public class AnalyzerTests
                 },
                 ExpectedDiagnostics =
                 {
-                    DiagnosticResult.CompilerError("GUIDGEN0004").WithSpan(5, 6, 5, 61)
+                    DiagnosticResult.CompilerError("GUIDGEN0004").WithSpan(5, 6, 5, 21)
                 }
             },
             CompilerDiagnostics = CompilerDiagnostics.None
@@ -145,7 +145,7 @@ public class AnalyzerTests
                 },
                 ExpectedDiagnostics =
                 {
-                    DiagnosticResult.CompilerError("GUIDGEN0005").WithSpan(5, 5, 6, 48)
+                    DiagnosticResult.CompilerError("GUIDGEN0005").WithSpan(5, 6, 5, 21)
                 }
             },
             CompilerDiagnostics = CompilerDiagnostics.None

@@ -71,7 +71,12 @@ public class GuidRVAGenerator : IIncrementalGenerator
 
                 token.ThrowIfCancellationRequested();
 
-                string? guid = (string?)(context.Attributes[0].ConstructorArguments[0].Value);
+                ImmutableArray<TypedConstant> constructorArgs = context.Attributes[0].ConstructorArguments;
+
+                if (constructorArgs.IsDefaultOrEmpty)
+                    return default;
+
+                string? guid = (string?)(constructorArgs[0].Value);
                 Guid parsedGuid;
                 if (string.IsNullOrEmpty(guid))
                 {

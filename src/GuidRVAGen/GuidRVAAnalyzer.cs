@@ -47,7 +47,7 @@ public class GuidRVAAnalyzer : DiagnosticAnalyzer
 
                 if (((CSharpCompilation)ctx.Compilation).LanguageVersion < LanguageVersion.CSharp13)
                 {
-                    ctx.ReportDiagnostic(Diagnostic.Create(DiagnosticDescriptors.UnsupportedCSharpVersionDescriptor, attribute.GetLocation()));
+                    ctx.ReportDiagnostic(Diagnostic.Create(DiagnosticDescriptors.UnsupportedCSharpVersionDescriptor, attribute.GetAttributeNameLocation()));
                 }
 
                 // Check if the property is has a valid return type.
@@ -63,19 +63,19 @@ public class GuidRVAAnalyzer : DiagnosticAnalyzer
 
                 if (!isValidReturnType)
                 {
-                    ctx.ReportDiagnostic(Diagnostic.Create(DiagnosticDescriptors.UnknownReturnTypeDescriptor, attribute.GetLocation()));
+                    ctx.ReportDiagnostic(Diagnostic.Create(DiagnosticDescriptors.UnknownReturnTypeDescriptor, attribute.GetAttributeNameLocation()));
                 }
 
                 string? guid = attribute.ConstructorArguments.FirstOrDefault().Value?.ToString();
 
                 if (string.IsNullOrEmpty(guid) || !Guid.TryParse(guid, out _))
                 {
-                    ctx.ReportDiagnostic(Diagnostic.Create(DiagnosticDescriptors.InvalidGuidDescriptor, attribute.GetLocation()));
+                    ctx.ReportDiagnostic(Diagnostic.Create(DiagnosticDescriptors.InvalidGuidDescriptor, attribute.GetConstructorArgumentLocation(0)));
                 }
 
                 if (propertySymbol.SetMethod is not null)
                 {
-                    ctx.ReportDiagnostic(Diagnostic.Create(DiagnosticDescriptors.PropertyHasSetterDescriptor, attribute.GetLocation()));
+                    ctx.ReportDiagnostic(Diagnostic.Create(DiagnosticDescriptors.PropertyHasSetterDescriptor, attribute.GetAttributeNameLocation()));
                 }
 
                 foreach (SyntaxReference propertyReference in propertySymbol.DeclaringSyntaxReferences)
@@ -86,7 +86,7 @@ public class GuidRVAAnalyzer : DiagnosticAnalyzer
                     }
                     if (!propertyDeclaration.Modifiers.Any(SyntaxKind.PartialKeyword))
                     {
-                        ctx.ReportDiagnostic(Diagnostic.Create(DiagnosticDescriptors.PropertyNotPartialDescriptor, propertyDeclaration.GetLocation()));
+                        ctx.ReportDiagnostic(Diagnostic.Create(DiagnosticDescriptors.PropertyNotPartialDescriptor, attribute.GetAttributeNameLocation()));
                     }
                 }
             }, SymbolKind.Property);
