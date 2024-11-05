@@ -3,6 +3,6 @@
         <PlaformFolder Condition="'$(Platform)' != 'AnyCPU' and '$(Platform)' != 'Any CPU'">$(Platform)\</PlaformFolder>
         <CommonOutputPath>$(MSBuildProjectDirectory)\..\bin\$(PlatformFolder)$(Configuration)\</CommonOutputPath>
         <OutputPath>$(CommonOutputPath)$(MSBuildProjectName)\$(TargetFramework)</OutputPath>
-        <Version>1.0.4</Version>
+        <Version>1.0.5</Version>
     </PropertyGroup>
 </Project>
