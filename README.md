@@ -75,7 +75,7 @@ public static unsafe partial class IID
 ```
 > [!WARNING]
 >
-> The `partial` keyword is critical. Make sure you set it to the property, as long with any types that the property resides in (in this case, the `IID` class).
+> The `partial` keyword is critical. Make sure you set it to the property, along with any types that the property resides in (in this case, the `IID` class).
 
 > [!CAUTION]
 >
