@@ -73,7 +73,7 @@ public static unsafe partial class IID
   public static partial Guid* IID_IUnknown { get; }
 }
 ```
-> [!WARNING]
+> [!IMPORTANT]
 >
 > The `partial` keyword is critical. Make sure you set it to the property, along with any types that the property resides in (in this case, the `IID` class).
 
